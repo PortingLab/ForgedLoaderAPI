@@ -1,3 +1,3 @@
-# ArchitecturyTemplateMod-Forge
+# ForgedFabricLoader
 
-These Templates are [Architectury Templates](https://github.com/architectury/architectury-templates) Fork (Only Forge).
+Reimplement part of the Fabric Loader on Forge.
