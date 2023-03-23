@@ -29,14 +29,13 @@ import java.util.Map;
 import java.util.Optional;
 
 import net.fabricmc.loader.api.FabricLoader;
+import net.fabricmc.loader.api.entrypoint.EntrypointContainer;
 import net.fabricmc.loader.impl.entrypoint.EntrypointStorage;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.javafmlmod.FMLModContainer;
 import net.minecraftforge.fml.loading.FMLLoader;
 import net.minecraftforge.fml.loading.FMLPaths;
-
-import net.fabricmc.loader.api.entrypoint.EntrypointContainer;
 
 @SuppressWarnings("deprecation")
 public final class FabricLoaderImpl implements FabricLoader {
@@ -49,8 +48,8 @@ public final class FabricLoaderImpl implements FabricLoader {
 
     private Object gameInstance;
 
-    private Path gameDir = FMLPaths.GAMEDIR.get();
-    private Path configDir = FMLPaths.CONFIGDIR.get();
+    private final Path gameDir = FMLPaths.GAMEDIR.get();
+    private final Path configDir = FMLPaths.CONFIGDIR.get();
 
     private FabricLoaderImpl() {
     }
