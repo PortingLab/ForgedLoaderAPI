@@ -23,6 +23,7 @@ import java.util.List;
 import java.util.Optional;
 
 import net.minecraftforge.fml.javafmlmod.FMLModContainer;
+import net.minecraftforge.forgespi.language.IModInfo;
 
 /**
  * Represents a mod.
@@ -32,9 +33,7 @@ public interface ModContainer {
     /**
      * Returns the metadata of this mod.
      */
-    default Object getMetadata(){
-        return fmlcontainer().getModInfo();
-    }
+    IModInfo getMetadata();
 
     /**
      * Returns the root directories of the mod (inside JAR/folder), exposing its contents.

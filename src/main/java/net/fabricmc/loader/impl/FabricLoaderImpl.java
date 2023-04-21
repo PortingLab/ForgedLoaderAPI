@@ -43,7 +43,7 @@ public final class FabricLoaderImpl implements FabricLoader {
     public static final FabricLoaderImpl INSTANCE = InitHelper.get();
 
     protected final Map<String, ModContainer> modMap = new HashMap<>();
-    protected List<FMLModContainer> mods = new ArrayList<>();
+    protected List<ModContainer> mods = new ArrayList<>();
 
     private final EntrypointStorage entrypointStorage = new EntrypointStorage();
 
@@ -128,11 +128,11 @@ public final class FabricLoaderImpl implements FabricLoader {
     }
 
     @Override
-    public Collection<FMLModContainer> getAllMods() {
+    public Collection<ModContainer> getAllMods() {
         return Collections.unmodifiableList(mods);
     }
 
-    public List<FMLModContainer> getModsInternal() {
+    public List<ModContainer> getModsInternal() {
         return mods;
     }
 
