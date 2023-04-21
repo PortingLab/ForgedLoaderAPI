@@ -113,7 +113,7 @@ public interface FabricLoader {
      *
      * @return a collection of all loaded mod containers
      */
-    Collection<FMLModContainer> getAllMods();
+    Collection<ModContainer> getAllMods();
 
     /**
      * Checks if a mod with a given ID is loaded.
