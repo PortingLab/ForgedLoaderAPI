@@ -106,7 +106,7 @@ public interface FabricLoader {
      * @param id the ID of the mod
      * @return the mod container, if present
      */
-    Optional<FMLModContainer> getModContainer(String id);
+    Optional<ModContainer> getModContainer(String id);
 
     /**
      * Gets all mod containers.

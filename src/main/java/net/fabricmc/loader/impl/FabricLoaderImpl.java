@@ -29,6 +29,7 @@ import java.util.Map;
 import java.util.Optional;
 
 import net.fabricmc.loader.api.FabricLoader;
+import net.fabricmc.loader.api.ModContainer;
 import net.fabricmc.loader.api.entrypoint.EntrypointContainer;
 import net.fabricmc.loader.impl.entrypoint.EntrypointStorage;
 import net.minecraftforge.api.distmarker.Dist;
@@ -41,7 +42,7 @@ import net.minecraftforge.fml.loading.FMLPaths;
 public final class FabricLoaderImpl implements FabricLoader {
     public static final FabricLoaderImpl INSTANCE = InitHelper.get();
 
-    protected final Map<String, FMLModContainer> modMap = new HashMap<>();
+    protected final Map<String, ModContainer> modMap = new HashMap<>();
     protected List<FMLModContainer> mods = new ArrayList<>();
 
     private final EntrypointStorage entrypointStorage = new EntrypointStorage();
@@ -122,7 +123,7 @@ public final class FabricLoaderImpl implements FabricLoader {
     }
 
     @Override
-    public Optional<FMLModContainer> getModContainer(String id) {
+    public Optional<ModContainer> getModContainer(String id) {
         return Optional.ofNullable(modMap.get(id));
     }
 
