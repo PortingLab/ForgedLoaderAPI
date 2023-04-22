@@ -17,8 +17,6 @@ dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
     forge "net.minecraftforge:forge:${project.forge_version}"
-
-    api(include("org.slf4j:slf4j-api:${project.slf4j_version}"))
 }
 
 processResources {
