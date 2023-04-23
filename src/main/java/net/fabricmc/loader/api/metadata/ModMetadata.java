@@ -20,8 +20,6 @@ import java.util.Collection;
 import java.util.Optional;
 
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.fml.loading.FMLEnvironment;
-import net.minecraftforge.fml.loading.VersionInfo;
 import net.minecraftforge.forgespi.language.IConfigurable;
 
 /**
