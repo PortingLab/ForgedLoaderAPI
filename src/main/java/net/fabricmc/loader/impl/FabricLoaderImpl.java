@@ -34,9 +34,8 @@ import net.fabricmc.loader.api.entrypoint.EntrypointContainer;
 import net.fabricmc.loader.impl.entrypoint.EntrypointStorage;
 import net.fabricmc.loader.impl.game.GameProvider;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.fml.loading.FMLPaths;
 import org.portinglab.forgedfabric.loader.api.ForgePatch;
-import org.portinglab.forgedfabric.loader.api.environment.ForgeEnvironment;
+import org.portinglab.forgedfabric.loader.api.launch.ForgeModEnv;
 
 @SuppressWarnings("deprecation")
 public final class FabricLoaderImpl implements FabricLoader {
@@ -69,7 +68,7 @@ public final class FabricLoaderImpl implements FabricLoader {
 
     @Override
     public Dist getEnvironmentType() {
-        return ForgeEnvironment.getEnvironment().getEnvType();
+        return ForgeModEnv.getEnvironment().getEnvType();
     }
 
     /**
@@ -150,7 +149,7 @@ public final class FabricLoaderImpl implements FabricLoader {
 
     @Override
     public boolean isDevelopmentEnvironment() {
-        return ForgeEnvironment.getEnvironment().isDevelopment();
+        return ForgeModEnv.getEnvironment().isDevelopment();
     }
 
     /**

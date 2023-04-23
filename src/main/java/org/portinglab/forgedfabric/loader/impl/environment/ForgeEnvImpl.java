@@ -2,9 +2,9 @@ package org.portinglab.forgedfabric.loader.impl.environment;
 
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.fml.loading.FMLLoader;
-import org.portinglab.forgedfabric.loader.api.environment.ForgeEnvironment;
+import org.portinglab.forgedfabric.loader.api.launch.ForgeEnv;
 
-public class ForgeEnvImpl implements ForgeEnvironment.ForgeEnv {
+public class ForgeEnvImpl implements ForgeEnv {
     @Override
     public Dist getEnvType() {
         return FMLLoader.getDist();
