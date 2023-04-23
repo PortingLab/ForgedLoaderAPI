@@ -22,18 +22,19 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
+import net.fabricmc.loader.api.metadata.ModMetadata;
 import net.minecraftforge.fml.javafmlmod.FMLModContainer;
+import net.minecraftforge.forgespi.language.IModFileInfo;
 import net.minecraftforge.forgespi.language.IModInfo;
 
 /**
  * Represents a mod.
  */
 public interface ModContainer {
-    FMLModContainer fmlcontainer();
     /**
      * Returns the metadata of this mod.
      */
-    IModInfo getMetadata();
+    ModMetadata getMetadata();
 
     /**
      * Returns the root directories of the mod (inside JAR/folder), exposing its contents.
@@ -47,26 +48,6 @@ public interface ModContainer {
      * @return the root directories of the mod, may be empty for builtin or other synthetic mods
      */
     List<Path> getRootPaths();
-
-    /**
-     * Gets an NIO reference to a file inside the JAR/folder.
-     *
-     * <p>The path, if present, is guaranteed to exist!
-     *
-     * <p>A path returned by this method may be incompatible with {@link Path#toFile} as its FileSystem doesn't
-     * necessarily represent the OS file system, but potentially a virtual view of jar contents or another abstraction.
-     *
-     * @param file The location from a root path, using {@code /} as a separator.
-     * @return optional containing the path to a given file or empty if it can't be found
-     */
-    default Optional<Path> findPath(String file) {
-        for (Path root : getRootPaths()) {
-            Path path = root.resolve(file.replace("/", root.getFileSystem().getSeparator()));
-            if (Files.exists(path)) return Optional.of(path);
-        }
-
-        return Optional.empty();
-    }
 
     /**
      * Get the mod containing this mod (nested jar parent).
@@ -97,10 +78,4 @@ public interface ModContainer {
      */
     @Deprecated
     Path getRootPath();
-
-    /**
-     * @deprecated use {@link #findPath} instead
-     */
-    @Deprecated
-    Path getPath(String file);
 }

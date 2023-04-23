@@ -16,6 +16,7 @@
 
 package net.fabricmc.loader.api.entrypoint;
 
+import net.fabricmc.loader.api.ModContainer;
 import net.minecraftforge.fml.javafmlmod.FMLModContainer;
 
 /**
@@ -33,5 +34,5 @@ public interface EntrypointContainer<T> {
     /**
      * Returns the mod that provided this entrypoint.
      */
-    FMLModContainer getProvider();
+    ModContainer getProvider();
 }
