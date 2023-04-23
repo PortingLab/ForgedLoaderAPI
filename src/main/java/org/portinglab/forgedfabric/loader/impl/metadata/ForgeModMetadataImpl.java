@@ -1,17 +1,15 @@
 package org.portinglab.forgedfabric.loader.impl.metadata;
 
 import net.minecraftforge.fml.ModList;
-import net.minecraftforge.fml.loading.moddiscovery.ModFileInfo;
+import net.minecraftforge.fml.loading.moddiscovery.ModInfo;
 import net.minecraftforge.forgespi.language.IConfigurable;
-import net.minecraftforge.forgespi.language.IModFileInfo;
-import net.minecraftforge.forgespi.language.IModInfo;
 import org.portinglab.forgedfabric.loader.api.metadata.ForgeModMetadata;
 
 import java.net.URL;
 import java.util.*;
 
 public class ForgeModMetadataImpl implements ForgeModMetadata {
-    public final IModInfo modInfo;
+    public final ModInfo modInfo;
 
     public ForgeModMetadataImpl(String id) {
         this.modInfo = ModList.get().getMods().stream().filter(modMetadata -> Objects.equals(modMetadata.getModId(), id)).findAny().orElseThrow(() -> new NoSuchElementException("No value present"));
@@ -39,23 +37,18 @@ public class ForgeModMetadataImpl implements ForgeModMetadata {
 
     @Override
     public Collection<String> getAuthors() {
-        Optional<String> optional = this.modInfo.getConfig().getConfigElement("authors").map(String::valueOf);
+        Optional<String> optional = this.modInfo.getConfigElement("authors").map(String::valueOf);
         return optional.isPresent() ? Collections.singleton(optional.get()) : Collections.emptyList();
     }
 
     @Override
     public Optional<String> getIssueTracker() {
-        IModFileInfo owningFile = this.modInfo.getOwningFile();
-        if (owningFile instanceof ModFileInfo info) {
-            return Optional.ofNullable(info.getIssueURL())
-                    .map(URL::toString);
-        }
-        return Optional.empty();
+        return Optional.ofNullable(this.modInfo.getOwningFile().getIssueURL()).map(URL::toString);
     }
 
     @Override
     public Optional<String> getModLink() {
-        return this.modInfo.getConfig().getConfigElement("displayURL").map(String::valueOf);
+        return this.modInfo.getConfigElement("displayURL").map(String::valueOf);
     }
 
     @Override
@@ -65,7 +58,7 @@ public class ForgeModMetadataImpl implements ForgeModMetadata {
 
     @Override
     public IConfigurable getContact() {
-        return modInfo.getConfig();
+        return modInfo;
     }
 
     @Override
