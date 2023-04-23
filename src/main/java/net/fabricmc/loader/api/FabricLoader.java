@@ -25,7 +25,6 @@ import java.util.Optional;
 import net.fabricmc.loader.api.entrypoint.EntrypointContainer;
 import net.fabricmc.loader.impl.FabricLoaderImpl;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.fml.javafmlmod.FMLModContainer;
 
 /**
  * The public-facing FabricLoader instance.

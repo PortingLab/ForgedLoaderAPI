@@ -24,31 +24,31 @@ import java.util.List;
 import java.util.Map;
 
 import net.fabricmc.loader.api.EntrypointException;
+import net.fabricmc.loader.api.ModContainer;
 import net.fabricmc.loader.api.entrypoint.EntrypointContainer;
-import net.minecraftforge.fml.javafmlmod.FMLModContainer;
 
 public final class EntrypointStorage {
     interface Entry {
         <T> T getOrCreate(Class<T> type) throws Exception;
         boolean isOptional();
 
-        FMLModContainer getModContainer();
+        ModContainer getModContainer();
     }
 
     @SuppressWarnings("deprecation")
     private static class OldEntry implements Entry {
-        private final FMLModContainer mod;
+        private final ModContainer mod;
         private final String value;
         private Object object;
 
-        private OldEntry(FMLModContainer mod, String value) {
+        private OldEntry(ModContainer mod, String value) {
             this.mod = mod;
             this.value = value;
         }
 
         @Override
         public String toString() {
-            return mod.getModId() + "->" + value;
+            return mod.getMetadata().getId() + "->" + value;
         }
 
         @SuppressWarnings({ "unchecked" })
@@ -67,17 +67,17 @@ public final class EntrypointStorage {
         }
 
         @Override
-        public FMLModContainer getModContainer() {
+        public ModContainer getModContainer() {
             return mod;
         }
     }
 
     private static final class NewEntry implements Entry {
-        private final FMLModContainer mod;
+        private final ModContainer mod;
         private final String value;
         private final Map<Class<?>, Object> instanceMap;
 
-        NewEntry(FMLModContainer mod, String value) {
+        NewEntry(ModContainer mod, String value) {
             this.mod = mod;
             this.value = value;
             this.instanceMap = new IdentityHashMap<>(1);
@@ -85,7 +85,7 @@ public final class EntrypointStorage {
 
         @Override
         public String toString() {
-            return mod.getModId() + "->(0.3.x)" + value;
+            return mod.getMetadata().getId() + "->(0.3.x)" + value;
         }
 
         @SuppressWarnings("unchecked")
@@ -109,7 +109,7 @@ public final class EntrypointStorage {
         }
 
         @Override
-        public FMLModContainer getModContainer() {
+        public ModContainer getModContainer() {
             return mod;
         }
     }
@@ -141,7 +141,7 @@ public final class EntrypointStorage {
                 }
             } catch (Throwable t) {
                 if (exception == null) {
-                    exception = new EntrypointException(key, entry.getModContainer().getModId(), t);
+                    exception = new EntrypointException(key, entry.getModContainer().getMetadata().getId(), t);
                 } else {
                     exception.addSuppressed(t);
                 }
@@ -174,7 +174,7 @@ public final class EntrypointStorage {
                     container = new EntrypointContainerImpl<>(entry, instance);
                 } catch (Throwable t) {
                     if (exc == null) {
-                        exc = new EntrypointException(key, entry.getModContainer().getModId(), t);
+                        exc = new EntrypointException(key, entry.getModContainer().getMetadata().getId(), t);
                     } else {
                         exc.addSuppressed(t);
                     }

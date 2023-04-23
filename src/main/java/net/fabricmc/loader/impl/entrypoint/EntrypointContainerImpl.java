@@ -17,8 +17,8 @@
 package net.fabricmc.loader.impl.entrypoint;
 
 import net.fabricmc.loader.api.EntrypointException;
+import net.fabricmc.loader.api.ModContainer;
 import net.fabricmc.loader.api.entrypoint.EntrypointContainer;
-import net.minecraftforge.fml.javafmlmod.FMLModContainer;
 
 public final class EntrypointContainerImpl<T> implements EntrypointContainer<T> {
     private final String key;
@@ -53,7 +53,7 @@ public final class EntrypointContainerImpl<T> implements EntrypointContainer<T> 
                 instance = entry.getOrCreate(type);
                 assert instance != null;
             } catch (Exception ex) {
-                throw new EntrypointException(key, getProvider().getModId(), ex);
+                throw new EntrypointException(key, getProvider().getMetadata().getId(), ex);
             }
         }
 
@@ -61,7 +61,7 @@ public final class EntrypointContainerImpl<T> implements EntrypointContainer<T> 
     }
 
     @Override
-    public FMLModContainer getProvider() {
+    public ModContainer getProvider() {
         return entry.getModContainer();
     }
 }
