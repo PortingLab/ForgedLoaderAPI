@@ -9,4 +9,9 @@ public class ForgeEnvImpl implements ForgeEnvironment.ForgeEnv {
     public Dist getEnvType() {
         return FMLLoader.getDist();
     }
+
+    @Override
+    public boolean isDevelopment() {
+        return !FMLLoader.isProduction();
+    }
 }

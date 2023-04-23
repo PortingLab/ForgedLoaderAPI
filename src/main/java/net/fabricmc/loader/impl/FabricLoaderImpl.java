@@ -32,10 +32,10 @@ import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
 import net.fabricmc.loader.api.entrypoint.EntrypointContainer;
 import net.fabricmc.loader.impl.entrypoint.EntrypointStorage;
+import net.fabricmc.loader.impl.game.GameProvider;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.fml.ModList;
-import net.minecraftforge.fml.loading.FMLLoader;
 import net.minecraftforge.fml.loading.FMLPaths;
+import org.portinglab.forgedfabric.loader.api.ForgePatch;
 import org.portinglab.forgedfabric.loader.api.environment.ForgeEnvironment;
 
 @SuppressWarnings("deprecation")
@@ -49,10 +49,17 @@ public final class FabricLoaderImpl implements FabricLoader {
 
     private Object gameInstance;
 
-    private final Path gameDir = FMLPaths.GAMEDIR.get();
-    private final Path configDir = FMLPaths.CONFIGDIR.get();
+    private Path gameDir;
+    private Path configDir;
+    private GameProvider provider;
 
     private FabricLoaderImpl() {
+        setGameDir(ForgePatch.getGameDir());
+    }
+
+    private void setGameDir(Path gameDir) {
+        this.gameDir = gameDir;
+        this.configDir = gameDir.resolve("config");
     }
 
     @Override
@@ -138,12 +145,12 @@ public final class FabricLoaderImpl implements FabricLoader {
 
     @Override
     public boolean isModLoaded(String id) {
-        return ModList.get().isLoaded(id);
+        return modMap.containsKey(id);
     }
 
     @Override
     public boolean isDevelopmentEnvironment() {
-        return (!FMLLoader.isProduction());
+        return ForgeEnvironment.getEnvironment().isDevelopment();
     }
 
     /**

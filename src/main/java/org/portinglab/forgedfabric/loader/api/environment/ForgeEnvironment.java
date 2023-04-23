@@ -9,5 +9,6 @@ public class ForgeEnvironment {
     }
     public interface ForgeEnv {
         Dist getEnvType();
+        boolean isDevelopment();
     }
 }
