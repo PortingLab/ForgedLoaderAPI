@@ -16,16 +16,12 @@
 
 package net.fabricmc.loader.api;
 
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
 import net.fabricmc.loader.api.metadata.ModMetadata;
-import net.minecraftforge.fml.javafmlmod.FMLModContainer;
-import net.minecraftforge.forgespi.language.IModFileInfo;
-import net.minecraftforge.forgespi.language.IModInfo;
 
 /**
  * Represents a mod.

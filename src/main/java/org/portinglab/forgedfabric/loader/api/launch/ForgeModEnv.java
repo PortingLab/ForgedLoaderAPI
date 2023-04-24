@@ -5,4 +5,8 @@ public class ForgeModEnv {
     public static ForgeEnv getEnvironment() {
         return forgeEnv;
     }
+
+    public static void setForgeEnv(ForgeEnv forgeEnv) {
+        ForgeModEnv.forgeEnv = forgeEnv;
+    }
 }
