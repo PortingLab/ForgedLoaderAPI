@@ -26,6 +26,7 @@ package net.fabricmc.api;
  *
  * @see ModInitializer
  * @see DedicatedServerModInitializer
+ * @deprecated This interface isn't use
  */
 @FunctionalInterface
 public interface ClientModInitializer {
