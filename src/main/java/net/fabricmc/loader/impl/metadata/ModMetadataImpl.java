@@ -4,8 +4,8 @@ import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
 import net.fabricmc.loader.api.metadata.ModMetadata;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.fml.loading.FMLEnvironment;
-import net.minecraftforge.forgespi.language.IConfigurable;
+import org.portinglab.forgedfabric.loader.api.launch.ForgeModEnv;
+import org.portinglab.forgedfabric.loader.api.metadata.ForgeContact;
 import org.portinglab.forgedfabric.loader.api.metadata.ForgeModMetadata;
 
 import java.util.Collection;
@@ -30,7 +30,7 @@ public class ModMetadataImpl implements ModMetadata {
 
     @Override
     public Dist getEnvironment() {
-        return FMLEnvironment.dist;
+        return ForgeModEnv.getEnvironment().getEnvType();
     }
 
     @Override
@@ -49,7 +49,7 @@ public class ModMetadataImpl implements ModMetadata {
     }
 
     @Override
-    public IConfigurable getContact() {
+    public ForgeContact getContact() {
         return modMetadata.getContact();
     }
 

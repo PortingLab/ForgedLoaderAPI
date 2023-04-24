@@ -2,9 +2,9 @@ package org.portinglab.forgedfabric.loader.impl.metadata;
 
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.loading.moddiscovery.ModFileInfo;
-import net.minecraftforge.forgespi.language.IConfigurable;
 import net.minecraftforge.forgespi.language.IModFileInfo;
 import net.minecraftforge.forgespi.language.IModInfo;
+import org.portinglab.forgedfabric.loader.api.metadata.ForgeContact;
 import org.portinglab.forgedfabric.loader.api.metadata.ForgeModMetadata;
 
 import java.net.URL;
@@ -64,8 +64,8 @@ public class ForgeModMetadataImpl implements ForgeModMetadata {
     }
 
     @Override
-    public IConfigurable getContact() {
-        return modInfo.getConfig();
+    public ForgeContact getContact() {
+        return (ForgeContact) modInfo.getConfig();
     }
 
     @Override

@@ -17,10 +17,9 @@
 package net.fabricmc.loader.api.entrypoint;
 
 import net.fabricmc.loader.api.ModContainer;
-import net.minecraftforge.fml.javafmlmod.FMLModContainer;
 
 /**
- * A container holding both an entrypoint instance and the {@link FMLModContainer} which has provided the entrypoint.
+ * A container holding both an entrypoint instance and the {@link ModContainer} which has provided the entrypoint.
  *
  * @param <T> The type of the entrypoint
  * @see net.fabricmc.loader.api.FabricLoader#getEntrypointContainers(String, Class)

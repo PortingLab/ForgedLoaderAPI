@@ -1,7 +1,5 @@
 package org.portinglab.forgedfabric.loader.api.metadata;
 
-import net.minecraftforge.forgespi.language.IConfigurable;
-
 import java.util.Collection;
 import java.util.Optional;
 
@@ -14,6 +12,6 @@ public interface ForgeModMetadata {
     Optional<String> getIssueTracker();
     Optional<String> getModLink();
     Collection<String> getLicense();
-    IConfigurable getContact();
+    ForgeContact getContact();
     Optional<String> getIconPath(int size);
 }
