@@ -14,7 +14,7 @@ public class ForgeModMetadataImpl implements ForgeModMetadata {
     public final IModInfo modInfo;
 
     public ForgeModMetadataImpl(String id) {
-        this.modInfo = ModList.get().getMods().stream().filter(modMetadata -> Objects.equals(modMetadata.getModId(), id)).findAny().orElseThrow(() -> new NoSuchElementException("No value present"));
+        this.modInfo = ModList.get().getMods().stream().filter(modMetadata -> Objects.equals(modMetadata.getModId(), id)).findAny().orElseThrow();
     }
 
     @Override

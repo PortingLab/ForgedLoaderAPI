@@ -36,7 +36,8 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.loading.FMLLoader;
 import net.minecraftforge.fml.loading.FMLPaths;
-import org.portinglab.forgedfabric.loader.api.environment.ForgeEnvironment;
+import org.portinglab.forgedfabric.loader.api.ForgePatch;
+import org.portinglab.forgedfabric.loader.api.launch.ForgeModEnv;
 
 @SuppressWarnings("deprecation")
 public final class FabricLoaderImpl implements FabricLoader {
@@ -49,12 +50,17 @@ public final class FabricLoaderImpl implements FabricLoader {
 
     private Object gameInstance;
 
-    private final Path gameDir = FMLPaths.GAMEDIR.get();
-    private final Path configDir = FMLPaths.CONFIGDIR.get();
+    private Path gameDir;
+    private Path configDir;
 
     private FabricLoaderImpl() {
+        setGameDir(ForgePatch.getGameDir());
     }
 
+    private void setGameDir(Path gameDir) {
+        this.gameDir = gameDir;
+        this.configDir = gameDir.resolve("config");
+    }
     @Override
     public Object getGameInstance() {
         return gameInstance;
@@ -62,7 +68,7 @@ public final class FabricLoaderImpl implements FabricLoader {
 
     @Override
     public Dist getEnvironmentType() {
-        return ForgeEnvironment.getEnvironment().getEnvType();
+        return ForgeModEnv.getEnvironment().getEnvType();
     }
 
     /**
@@ -138,12 +144,12 @@ public final class FabricLoaderImpl implements FabricLoader {
 
     @Override
     public boolean isModLoaded(String id) {
-        return ModList.get().isLoaded(id);
+        return modMap.containsKey(id);
     }
 
     @Override
     public boolean isDevelopmentEnvironment() {
-        return (!FMLLoader.isProduction());
+        return ForgeModEnv.getEnvironment().isDevelopment();
     }
 
     /**
