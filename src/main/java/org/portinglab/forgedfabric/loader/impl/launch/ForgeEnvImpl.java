@@ -1,4 +1,4 @@
-package org.portinglab.forgedfabric.loader.impl.environment;
+package org.portinglab.forgedfabric.loader.impl.launch;
 
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.fml.loading.FMLLoader;

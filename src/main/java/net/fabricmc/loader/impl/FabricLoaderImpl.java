@@ -32,7 +32,6 @@ import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
 import net.fabricmc.loader.api.entrypoint.EntrypointContainer;
 import net.fabricmc.loader.impl.entrypoint.EntrypointStorage;
-import net.fabricmc.loader.impl.game.GameProvider;
 import net.minecraftforge.api.distmarker.Dist;
 import org.portinglab.forgedfabric.loader.api.ForgePatch;
 import org.portinglab.forgedfabric.loader.api.launch.ForgeModEnv;
@@ -50,7 +49,6 @@ public final class FabricLoaderImpl implements FabricLoader {
 
     private Path gameDir;
     private Path configDir;
-    private GameProvider provider;
 
     private FabricLoaderImpl() {
         setGameDir(ForgePatch.getGameDir());

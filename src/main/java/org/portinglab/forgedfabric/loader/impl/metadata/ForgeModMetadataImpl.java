@@ -3,6 +3,7 @@ package org.portinglab.forgedfabric.loader.impl.metadata;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.loading.moddiscovery.ModInfo;
 import net.minecraftforge.forgespi.language.IConfigurable;
+import org.portinglab.forgedfabric.loader.api.metadata.ForgeContact;
 import org.portinglab.forgedfabric.loader.api.metadata.ForgeModMetadata;
 
 import java.net.URL;
@@ -57,8 +58,8 @@ public class ForgeModMetadataImpl implements ForgeModMetadata {
     }
 
     @Override
-    public IConfigurable getContact() {
-        return modInfo;
+    public ForgeContact getContact() {
+        return (ForgeContact) modInfo;
     }
 
     @Override

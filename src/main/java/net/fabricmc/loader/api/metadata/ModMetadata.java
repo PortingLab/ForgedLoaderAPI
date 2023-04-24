@@ -20,7 +20,7 @@ import java.util.Collection;
 import java.util.Optional;
 
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.forgespi.language.IConfigurable;
+import org.portinglab.forgedfabric.loader.api.metadata.ForgeContact;
 
 /**
  * The metadata of a mod.
@@ -63,7 +63,7 @@ public interface ModMetadata {
     /**
      * Returns the mod's contact information.
      */
-    IConfigurable getContact();
+    ForgeContact getContact();
 
     /**
      * Returns the mod's licenses.
