@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package net.fabricmc.loader.api;
+package org.portinglab.fabricloader.loader.api;
 
 import java.nio.file.Path;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
-import net.fabricmc.loader.api.metadata.ModMetadata;
+import org.portinglab.fabricloader.loader.api.metadata.ModMetadata;
 
 /**
  * Represents a mod.

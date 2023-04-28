@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package net.fabricmc.loader.api;
+package org.portinglab.fabricloader.loader.api;
 
 import java.io.File;
 import java.nio.file.Path;
@@ -22,8 +22,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
-import net.fabricmc.loader.api.entrypoint.EntrypointContainer;
-import net.fabricmc.loader.impl.FabricLoaderImpl;
+import org.portinglab.fabricloader.loader.api.entrypoint.EntrypointContainer;
+import org.portinglab.fabricloader.loader.impl.FabricLoaderImpl;
 import net.minecraftforge.api.distmarker.Dist;
 
 /**

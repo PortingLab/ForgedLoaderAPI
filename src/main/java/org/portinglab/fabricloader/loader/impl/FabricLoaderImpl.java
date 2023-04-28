@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package net.fabricmc.loader.impl;
+package org.portinglab.fabricloader.loader.impl;
 
 import java.io.File;
 import java.io.IOException;
@@ -28,14 +28,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-import net.fabricmc.loader.api.FabricLoader;
-import net.fabricmc.loader.api.ModContainer;
-import net.fabricmc.loader.api.entrypoint.EntrypointContainer;
-import net.fabricmc.loader.impl.entrypoint.EntrypointStorage;
+import org.portinglab.fabricloader.loader.api.FabricLoader;
+import org.portinglab.fabricloader.loader.api.ModContainer;
+import org.portinglab.fabricloader.loader.api.entrypoint.EntrypointContainer;
+import org.portinglab.fabricloader.loader.impl.entrypoint.EntrypointStorage;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.fml.ModList;
-import net.minecraftforge.fml.loading.FMLLoader;
-import net.minecraftforge.fml.loading.FMLPaths;
 import org.portinglab.forgedfabric.loader.api.ForgePatch;
 import org.portinglab.forgedfabric.loader.api.launch.ForgeModEnv;
 

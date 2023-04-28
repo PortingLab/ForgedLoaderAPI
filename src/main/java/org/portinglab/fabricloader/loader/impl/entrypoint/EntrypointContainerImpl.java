@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package net.fabricmc.loader.impl.entrypoint;
+package org.portinglab.fabricloader.loader.impl.entrypoint;
 
-import net.fabricmc.loader.api.EntrypointException;
-import net.fabricmc.loader.api.ModContainer;
-import net.fabricmc.loader.api.entrypoint.EntrypointContainer;
+import org.portinglab.fabricloader.loader.api.EntrypointException;
+import org.portinglab.fabricloader.loader.api.ModContainer;
+import org.portinglab.fabricloader.loader.api.entrypoint.EntrypointContainer;
 
 public final class EntrypointContainerImpl<T> implements EntrypointContainer<T> {
     private final String key;
