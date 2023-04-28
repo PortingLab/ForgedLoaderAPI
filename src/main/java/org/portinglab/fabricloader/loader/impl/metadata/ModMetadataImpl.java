@@ -1,11 +1,9 @@
-package net.fabricmc.loader.impl.metadata;
+package org.portinglab.fabricloader.loader.impl.metadata;
 
-import net.fabricmc.loader.api.FabricLoader;
-import net.fabricmc.loader.api.ModContainer;
-import net.fabricmc.loader.api.metadata.ModMetadata;
+import org.portinglab.fabricloader.loader.api.FabricLoader;
+import org.portinglab.fabricloader.loader.api.ModContainer;
+import org.portinglab.fabricloader.loader.api.metadata.ModMetadata;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.fml.loading.FMLEnvironment;
-import net.minecraftforge.forgespi.language.IConfigurable;
 import org.portinglab.forgedfabric.loader.api.launch.ForgeModEnv;
 import org.portinglab.forgedfabric.loader.api.metadata.ForgeContact;
 import org.portinglab.forgedfabric.loader.api.metadata.ForgeModMetadata;

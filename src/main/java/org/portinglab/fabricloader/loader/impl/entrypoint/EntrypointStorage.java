@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package net.fabricmc.loader.impl.entrypoint;
+package org.portinglab.fabricloader.loader.impl.entrypoint;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -23,9 +23,9 @@ import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
 
-import net.fabricmc.loader.api.EntrypointException;
-import net.fabricmc.loader.api.ModContainer;
-import net.fabricmc.loader.api.entrypoint.EntrypointContainer;
+import org.portinglab.fabricloader.loader.api.EntrypointException;
+import org.portinglab.fabricloader.loader.api.ModContainer;
+import org.portinglab.fabricloader.loader.api.entrypoint.EntrypointContainer;
 
 public final class EntrypointStorage {
     interface Entry {
