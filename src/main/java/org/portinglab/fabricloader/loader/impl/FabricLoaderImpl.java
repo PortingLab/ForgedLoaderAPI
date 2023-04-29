@@ -28,7 +28,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-import org.portinglab.fabricloader.loader.api.FabricLoader;
 import org.portinglab.fabricloader.loader.api.ModContainer;
 import org.portinglab.fabricloader.loader.api.entrypoint.EntrypointContainer;
 import org.portinglab.fabricloader.loader.impl.entrypoint.EntrypointStorage;
@@ -37,7 +36,7 @@ import org.portinglab.forgedfabric.loader.api.ForgePatch;
 import org.portinglab.forgedfabric.loader.api.launch.ForgeModEnv;
 
 @SuppressWarnings("deprecation")
-public final class FabricLoaderImpl implements FabricLoader {
+public final class FabricLoaderImpl extends org.portinglab.fabricloader.legacyloader.FabricLoader {
     public static final FabricLoaderImpl INSTANCE = InitHelper.get();
 
     protected final Map<String, ModContainer> modMap = new HashMap<>();
